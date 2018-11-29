@@ -2,16 +2,32 @@ package ru.tutu.stations
 
 import android.content.ContentProvider
 import android.content.ContentValues
+import android.content.Context
 import android.database.Cursor
 import android.net.Uri
+import ru.digipeople.logger.LoggerFactory
+import ru.tutu.stations.di.Dagger
 
 /**
+ * Базовый класс для [ContentProvider],
+ * отвечающего за инициализацию приложения.
+ *
  * @author Grigoriy Pryamov.
  */
 class AppInitProvider : ContentProvider() {
 
+    private val logger = LoggerFactory.getLogger(AppInitProvider::class)
+
     override fun onCreate(): Boolean {
+        logger.trace("onCreate")
+        initDi(context)
         return false
+    }
+
+    private fun initDi(context: Context?) {
+        val app = context as App
+        Dagger.set(DaggerAppComponent.builder().appModule(AppModule(app)).build())
+        Dagger.get().inject(this)
     }
 
     override fun insert(uri: Uri, values: ContentValues?): Uri? = null
