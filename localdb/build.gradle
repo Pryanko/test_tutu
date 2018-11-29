@@ -1,6 +1,6 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
 
@@ -8,42 +8,33 @@ android {
     buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
-        applicationId "ru.tutu.stations"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         versionCode rootProject.versionCode
         versionName rootProject.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
+
     buildTypes {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        beta {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            matchingFallbacks = ['release']
-        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
-    sourceSets {
-        main.java.srcDirs += rootProject.defaultPath
-    }
-
-    applicationVariants.all { variant ->
-        variant.outputs.all { output ->
-            outputFileName = "Stations_${variant.buildType.name}_${variant.versionName}.apk"
-        }
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main.java.srcDirs += rootProject.defaultPath
     }
 }
 
@@ -52,22 +43,16 @@ dependencies {
     implementation project(':utils')
     // Logger
     depsLogger()
-    // MapStruct
-    depsMapStruct()
     // Dagger
     depsDagger()
-    // AppCompat
-    depsAppCompat()
-    // Design
-    depsDesign()
-    // RxJava
-    depsRxJava()
-    // Kotlin
-    depsKotlin()
+    // MapStruct
+    depsMapStruct()
     // Tests
     depsTests()
-    // SQLiteStudio
-    debugImplementation 'ru.digipeople.database:sqlitestudioservice:1.0.0'
-    releaseImplementation 'ru.digipeople.database:sqlitestudioservice-stub:1.0.0'
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Kotlin
+    depsKotlin()
+    // Room
+    api "android.arch.persistence.room:runtime:1.1.1"
+    kapt "android.arch.persistence.room:compiler:1.1.1"
+    implementation "android.arch.persistence.room:rxjava2:1.1.1"
 }
