@@ -47,6 +47,8 @@ dependencies {
     depsTests()
     // Kotlin
     depsKotlin()
+    // RxKotlin
+    depsRxKotlin
     // Dagger
     depsDagger()
     // Retrofit
