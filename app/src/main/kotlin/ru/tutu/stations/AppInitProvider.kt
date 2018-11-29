@@ -25,6 +25,7 @@ class AppInitProvider : ContentProvider() {
     }
 
     private fun initDi(context: Context?) {
+        logger.trace("initDi")
         val app = context as App
         Dagger.set(DaggerAppComponent.builder().appModule(AppModule(app)).build())
         Dagger.get().inject(this)

@@ -51,6 +51,10 @@ android {
 dependencies {
     // Utils
     implementation project(':utils')
+    // Network
+    implementation project(':network')
+    // LocalDB
+    implementation project(':localdb')
     // Logger
     depsLogger()
     // MapStruct
