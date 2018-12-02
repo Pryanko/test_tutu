@@ -11,10 +11,14 @@
                  android:supportsRtl="true"
                  android:theme="@style/AppTheme"
                  tools:ignore="GoogleAppIndexingWarning">
+
         <provider
                 android:name=".AppInitProvider"
                 android:authorities="${applicationId}.appInitProvider"
                 android:exported="false"/>
+
+        <activity android:name=".ui.activity.launcher.LauncherActivity"
+                  android:screenOrientation="${defaultOrientation}"/>
 
     </application>
 
