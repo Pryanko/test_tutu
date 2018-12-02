@@ -18,17 +18,37 @@ android {
     }
     buildTypes {
         debug {
+            def debugSubVersion = "1"
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug" + debugSubVersion
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // Плейсхолдеры
+            manifestPlaceholders = [
+                    defaultOrientation: "unspecified"
+            ]
         }
         beta {
+            def betaSubVersion = "1"
+            applicationIdSuffix ".beta"
+            versionNameSuffix "-beta" + betaSubVersion
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             matchingFallbacks = ['release']
+            // Плейсхолдеры
+            manifestPlaceholders = [
+                    defaultOrientation: "portrait"
+            ]
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // Плейсхолдеры
+            manifestPlaceholders = [
+                    defaultOrientation: "portrait"
+            ]
         }
     }
 

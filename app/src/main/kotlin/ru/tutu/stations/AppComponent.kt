@@ -2,6 +2,7 @@ package ru.tutu.stations
 
 import dagger.Component
 import ru.tutu.stations.network.ApiModule
+import ru.tutu.stations.ui.mvp.core.MvpProcessor
 import javax.inject.Singleton
 
 /**
@@ -18,5 +19,7 @@ import javax.inject.Singleton
 interface AppComponent {
 
     fun inject(appInitProvider: AppInitProvider)
+
+    fun mvpProcessor(): MvpProcessor
 
 }
