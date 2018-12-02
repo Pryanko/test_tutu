@@ -1,6 +1,7 @@
 package ru.tutu.stations
 
 import dagger.Component
+import ru.tutu.stations.data.DataSynchronizer
 import ru.tutu.stations.localdb.di.LocalDataBaseModule
 import ru.tutu.stations.network.ApiModule
 import ru.tutu.stations.ui.activity.launcher.LauncherScreenComponent
@@ -26,4 +27,6 @@ interface AppComponent {
     fun mvpProcessor(): MvpProcessor
 
     fun launcherScreenComponent(): LauncherScreenComponent
+
+    fun dataSynchonizer(): DataSynchronizer
 }

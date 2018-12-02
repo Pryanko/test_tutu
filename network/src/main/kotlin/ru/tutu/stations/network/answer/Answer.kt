@@ -6,7 +6,7 @@ import ru.tutu.stations.network.model.Dissect
 /**
  * @author Grigoriy Pryamov.
  */
-class Answer(@SerializedName("citiesFrom") override val values: List<City>) : Dissect<City> {
+class Answer<E>(@SerializedName("citiesFrom") override val values: List<E>) : Dissect<E> {
 
-    override fun get(): List<City> = values
+    override fun get(): List<E> = values
 }

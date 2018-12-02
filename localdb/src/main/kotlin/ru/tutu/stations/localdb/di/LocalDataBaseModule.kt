@@ -5,6 +5,7 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import ru.tutu.stations.localdb.AppDatabase
+import ru.tutu.stations.localdb.base.DbTransaction
 import ru.tutu.stations.localdb.base.DbTransactionImpl
 import javax.inject.Singleton
 
@@ -24,7 +25,7 @@ class LocalDataBaseModule {
 
     @Provides
     @Singleton
-    fun dbTransaction(appDatabase: AppDatabase) = DbTransactionImpl(appDatabase)
+    fun dbTransaction(appDatabase: AppDatabase): DbTransaction = DbTransactionImpl(appDatabase)
 
     companion object {
         const val DB_NAME = "local.db"

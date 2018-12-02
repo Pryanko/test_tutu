@@ -14,21 +14,21 @@ class ApiModule {
 
     @Provides
     @Singleton
-    internal fun httpClient() = OkHttpClient()
+    fun httpClient() = OkHttpClient()
 
     @Provides
-    internal fun apiConfig() = ApiConfig(BuildConfig.API_BASE_URL)
-
-    @Provides
-    @Singleton
-    internal fun retrofitProvider(apiRetrofitBuilder: ApiRetrofitBuilder) = apiRetrofitBuilder.build()
+    fun apiConfig() = ApiConfig(BuildConfig.API_BASE_URL)
 
     @Provides
     @Singleton
-    internal fun responseConverter() = ResponseConverter()
+    fun retrofitProvider(apiRetrofitBuilder: ApiRetrofitBuilder) = apiRetrofitBuilder.build()
 
     @Provides
     @Singleton
-    fun apiWorker(retrofit: Retrofit, responseConverter: ResponseConverter) =
+    fun responseConverter() = ResponseConverter()
+
+    @Provides
+    @Singleton
+    fun apiWorker(retrofit: Retrofit, responseConverter: ResponseConverter): ApiWorker =
         DefaultApiWorker(retrofit.create(Api::class.java), responseConverter)
 }
