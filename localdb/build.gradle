@@ -14,6 +14,8 @@ android {
         versionName rootProject.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        // Константы
+        buildConfigField('int', 'DB_VERSION', '1')
     }
 
     buildTypes {
