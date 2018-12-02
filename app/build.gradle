@@ -71,6 +71,8 @@ dependencies {
     depsKotlin()
     // Tests
     depsTests()
+    // Retrofit
+    depsRetrofit()
     // SQLiteStudio
     debugImplementation 'ru.digipeople.database:sqlitestudioservice:1.0.0'
     releaseImplementation 'ru.digipeople.database:sqlitestudioservice-stub:1.0.0'
