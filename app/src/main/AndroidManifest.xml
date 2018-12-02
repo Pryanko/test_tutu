@@ -18,8 +18,15 @@
                 android:exported="false"/>
 
         <activity android:name=".ui.activity.launcher.LauncherActivity"
-                  android:screenOrientation="${defaultOrientation}"/>
+                  android:theme="@style/LauncherActivityTheme"
+                  android:screenOrientation="${defaultOrientation}">
 
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

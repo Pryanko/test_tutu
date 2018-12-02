@@ -2,6 +2,7 @@ package ru.tutu.stations.ui.activity.launcher
 
 import android.os.Bundle
 import ru.digipeople.logger.LoggerFactory
+import ru.tutu.stations.R
 import ru.tutu.stations.ui.activity.base.ActivityModule
 import ru.tutu.stations.ui.activity.base.MvpActivity
 
@@ -27,6 +28,7 @@ class LauncherActivity : MvpActivity(), LauncherView {
             .build()
         component.inject(this)
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_launcher)
         presenter = getMvpDelegate().getPresenter(component::launcherPresenter, LauncherPresenter::class.java)
         presenter.initialize()
     }
