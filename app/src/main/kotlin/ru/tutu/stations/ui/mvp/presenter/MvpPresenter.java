@@ -1,31 +1,33 @@
-package ru.tutu.stations.ui.mvp.presenter
+package ru.tutu.stations.ui.mvp.presenter;
 
-import ru.tutu.stations.ui.mvp.MvpView
+import android.support.annotation.NonNull;
+import ru.tutu.stations.ui.mvp.view.MvpView;
 
 /**
  * MVP презентер.
  *
  * @param <V> {@link MvpView}, c которой работает презентер.
- * @author Grigoriy Pryamov.
+ * @author Grigoriy Pryamov
  */
-interface MvpPresenter<V : MvpView> {
+public interface MvpPresenter<V extends MvpView> {
+
     /**
-     * Привязывает [MvpView] к презентеру
+     * Привязывает {@link MvpView} к презентеру
      *
      * @param view Представление
      */
-    fun bind(view: V)
+    void bind(@NonNull V view);
 
     /**
-     * Отвязывает [MvpView] от презентера
+     * Отвязывает {@link MvpView} от презентера
      *
      * @param view
      */
-    fun unbind(view: V)
+    void unbind(@NonNull V view);
 
     /**
      * Вызывается при очищении ссылки на презентер.
      * Последняя точка, в которой нужно отвязаться от всех static ссылок.
      */
-    fun destroy()
+    void destroy();
 }

@@ -2,6 +2,7 @@ package ru.tutu.stations
 
 import dagger.Component
 import ru.tutu.stations.network.ApiModule
+import ru.tutu.stations.ui.activity.launcher.LauncherScreenComponent
 import ru.tutu.stations.ui.mvp.core.MvpProcessor
 import javax.inject.Singleton
 
@@ -22,4 +23,5 @@ interface AppComponent {
 
     fun mvpProcessor(): MvpProcessor
 
+    fun launcherScreenComponent(): LauncherScreenComponent
 }

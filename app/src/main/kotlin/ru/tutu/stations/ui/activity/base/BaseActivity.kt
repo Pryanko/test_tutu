@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import ru.digipeople.logger.LoggerFactory
 import ru.tutu.stations.di.Dagger
 import ru.tutu.stations.ui.mvp.MvpDelegate
-import ru.tutu.stations.ui.mvp.MvpView
+import ru.tutu.stations.ui.mvp.view.MvpView
 
 /**
  * Базовая активити с нормальной реализацией биндинга {@link MvpView}.
@@ -23,6 +23,8 @@ abstract class MvpActivity : BaseActivity() {
      * Делегат для хранения/получения тега
      */
     private lateinit var mvpDelegate: MvpDelegate
+
+    fun getMvpDelegate() = mvpDelegate
 
     override fun onCreate(savedInstanceState: Bundle?) {
         logger.trace("onCreate: " + this)
