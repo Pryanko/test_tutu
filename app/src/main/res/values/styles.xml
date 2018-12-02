@@ -15,4 +15,10 @@
         <item name="colorAccent">@color/appWhite</item>
     </style>
 
+    <style name="ProgressAppBarStyleTheme" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:background">@color/appWhite</item>
+        <item name="colorPrimary">@color/appBlue</item>
+        <item name="colorAccent">@color/appBlue</item>
+    </style>
+
 </resources>
