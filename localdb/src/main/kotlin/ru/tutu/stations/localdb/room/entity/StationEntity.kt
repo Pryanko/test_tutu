@@ -12,7 +12,7 @@ class StationEntity : EntityWithId<Long> {
     /**
      * Id station
      */
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     override var id = 0L
     /**
      * Id региона

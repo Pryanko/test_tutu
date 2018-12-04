@@ -21,7 +21,8 @@ interface StationMapper : BaseMapper<Station, StationEntity> {
 
     @Mappings(
         Mapping(target = "longitude", source = "point.longitude"),
-        Mapping(target = "latitude", source = "point.latitude")
+        Mapping(target = "latitude", source = "point.latitude"),
+        Mapping(target = "id", ignore = true)
     )
     override fun modelToEntity(model: Station?): StationEntity?
 }
