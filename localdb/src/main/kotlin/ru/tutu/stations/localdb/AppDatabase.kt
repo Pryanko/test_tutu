@@ -2,6 +2,7 @@ package ru.tutu.stations.localdb
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.RoomDatabase
+import ru.tutu.stations.localdb.room.CountryDao
 import ru.tutu.stations.localdb.room.entity.CountryEntity
 
 /**
@@ -12,4 +13,7 @@ import ru.tutu.stations.localdb.room.entity.CountryEntity
     entities = [CountryEntity::class
     ]
 )
-abstract class AppDatabase : RoomDatabase()
+abstract class AppDatabase : RoomDatabase() {
+
+    abstract fun countryDao(): CountryDao
+}

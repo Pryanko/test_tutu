@@ -26,7 +26,7 @@ class LauncherPresenter @Inject constructor(
         syncDisposable = dataSynchronizer.sync()
             .subscribeOn(Schedulers.io())
             .subscribeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { t -> logger.trace("dataSynchronizer: ON") }
+            .doOnSubscribe { _ -> logger.trace("dataSynchronizer: ON") }
             .subscribe {
                 logger.trace("dataSynchronizer: OFF")
             }

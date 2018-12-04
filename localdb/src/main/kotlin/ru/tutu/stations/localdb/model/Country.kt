@@ -9,7 +9,7 @@ class Country : ModelWithId<Long> {
     /**
      * Id
      */
-    override var id: Long = 0
+    override var id = 0L
     /**
      * Наименование региона - страны
      */

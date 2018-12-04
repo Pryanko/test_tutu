@@ -15,7 +15,7 @@ class CountryEntity : EntityWithId<Long> {
      * Id
      */
     @PrimaryKey(autoGenerate = true)
-    override var id: Long = 0
+    override var id = 0L
     /**
      * Наименование региона - страны
      */
