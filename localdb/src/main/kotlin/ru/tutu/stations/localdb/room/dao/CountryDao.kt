@@ -1,4 +1,4 @@
-package ru.tutu.stations.localdb.room
+package ru.tutu.stations.localdb.room.dao
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Query
