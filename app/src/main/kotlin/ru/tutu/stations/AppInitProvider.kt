@@ -5,6 +5,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.net.Uri
+import ru.digipeople.database.sqlitestudioservice.SQLiteStudioService
 import ru.digipeople.logger.LoggerFactory
 import ru.tutu.stations.di.Dagger
 
@@ -21,6 +22,7 @@ class AppInitProvider : ContentProvider() {
     override fun onCreate(): Boolean {
         logger.trace("onCreate")
         initDi(context)
+        initExternalSQLiteTool(context)
         return false
     }
 
@@ -29,6 +31,10 @@ class AppInitProvider : ContentProvider() {
         val app = context as App
         Dagger.set(DaggerAppComponent.builder().appModule(AppModule(app)).build())
         Dagger.get().inject(this)
+    }
+
+    private fun initExternalSQLiteTool(context: Context?) {
+        SQLiteStudioService(context, BuildConfig.SQL_STUDIO_PORT).start()
     }
 
     override fun insert(uri: Uri, values: ContentValues?): Uri? = null
