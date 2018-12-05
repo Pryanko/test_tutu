@@ -15,4 +15,7 @@ interface CountryDao : BaseDao<CountryEntity> {
 
     @Query("SELECT * FROM country WHERE countryTitleToLower = :nameToLower")
     fun containsCountry(nameToLower: String): CountryEntity?
+
+    @Query("SELECT COUNT(*) FROM country")
+    fun count(): Long
 }

@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Stations</string>
+
+    <!--LauncherActivity-->
+    <string name="download_sync_status">Обновляем данные</string>
+    <string name="process_sync_status">Обрабатываем данные</string>
+    <string name="success_sync_status">Данные обновлены</string>
+    <string name="not_require_sync_status">Обновление не требуется</string>
+    <string name="error_sync_status">Ошибка сервиса, повторите позднее</string>
+    <string name="deferred_sync_status">Обновление произойдёт позже, работайте =)</string>
+    <string name="button_next">Далее</string>
+    <string name="button_refresh">Повторить</string>
+
 </resources>

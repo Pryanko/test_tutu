@@ -20,20 +20,39 @@ class LauncherPresenter @Inject constructor(
     private val logger = LoggerFactory.getLogger(LauncherPresenter::class)
 
     private var syncDisposable = Disposables.disposed()
+    private var statusDisposable = Disposables.disposed()
 
     override fun onInitialize() {
         logger.trace("onInitialize")
-        syncDisposable = dataSynchronizer.sync()
+        statusDisposable = dataSynchronizer.syncStatusChanges()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { syncStatus -> view.setSyncStatus(syncStatus) }
+        requestUpdate()
+    }
+
+    private fun requestUpdate() {
+        syncDisposable = dataSynchronizer.dataSync()
             .subscribeOn(Schedulers.io())
             .subscribeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { _ -> logger.trace("dataSynchronizer: ON") }
-            .subscribe {
+            .subscribe({
                 logger.trace("dataSynchronizer: OFF")
-            }
+            }, { error -> logger.error(error) })
     }
 
     override fun destroy() {
         syncDisposable.dispose()
+        statusDisposable.dispose()
         super.destroy()
+    }
+
+    fun onClickedBtnNext() {
+        logger.trace("onClickedBtnNext")
+    }
+
+    fun onClickedBtnRefresh() {
+        logger.trace("onClickedBtnRefresh")
+        requestUpdate()
     }
 }

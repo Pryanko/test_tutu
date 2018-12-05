@@ -10,4 +10,8 @@ interface CountryRepository : ModelRepository<Country, Long> {
     fun getAllCountries(): List<Country>
     // Не корректно чекать -по стринг записи, но в рамках тест задания это возможно
     fun containsCountry(nameToLower: String): Boolean
+
+    fun deleteAllCascade()
+
+    fun isContainsData(): Boolean
 }

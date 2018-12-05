@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -19,6 +19,11 @@
         <item name="android:background">@color/appWhite</item>
         <item name="colorPrimary">@color/appBlue</item>
         <item name="colorAccent">@color/appBlue</item>
+    </style>
+
+    <style name="App.Launcher.Button" parent="Theme.AppCompat.Light">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize" tools:ignore="SpUsage">19dp</item>
     </style>
 
 </resources>

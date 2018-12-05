@@ -1,13 +1,22 @@
 package ru.tutu.stations.localdb.room.entity
 
 import android.arch.persistence.room.Entity
+import android.arch.persistence.room.ForeignKey
 import android.arch.persistence.room.PrimaryKey
 import ru.tutu.stations.localdb.room.entity.base.EntityWithId
 
 /**
  * @author Grigoriy Pryamov.
  */
-@Entity(tableName = "Station")
+@Entity(
+    tableName = "Station",
+    foreignKeys = [
+        ForeignKey(
+            entity = CountryEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["countryId"],
+            onDelete = ForeignKey.CASCADE)
+    ])
 class StationEntity : EntityWithId<Long> {
     /**
      * Id station

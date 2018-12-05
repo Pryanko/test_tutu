@@ -24,4 +24,10 @@ class CountryRepositoryImpl @Inject constructor(appDatabase: AppDatabase, countr
     override fun containsCountry(nameToLower: String): Boolean {
         return dao.containsCountry(nameToLower) != null
     }
+
+    override fun deleteAllCascade() {
+        appDatabase.openHelper.writableDatabase.execSQL("DELETE FROM Country")
+    }
+
+    override fun isContainsData(): Boolean = dao.count() > 0
 }
