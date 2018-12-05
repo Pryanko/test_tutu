@@ -1,11 +1,10 @@
 package ru.tutu.stations.ui.activity.launcher
 
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposables
-import io.reactivex.schedulers.Schedulers
 import ru.digipeople.logger.LoggerFactory
 import ru.tutu.stations.data.DataSynchronizer
 import ru.tutu.stations.ui.mvp.presenter.BaseMvpViewStatePresenter
+import ru.tutu.stations.util.AppSchedulers
 import javax.inject.Inject
 
 /**
@@ -25,16 +24,16 @@ class LauncherPresenter @Inject constructor(
     override fun onInitialize() {
         logger.trace("onInitialize")
         statusDisposable = dataSynchronizer.syncStatusChanges()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(AppSchedulers.background())
+            .observeOn(AppSchedulers.ui())
             .subscribe { syncStatus -> view.setSyncStatus(syncStatus) }
         requestUpdate()
     }
 
     private fun requestUpdate() {
         syncDisposable = dataSynchronizer.dataSync()
-            .subscribeOn(Schedulers.io())
-            .subscribeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(AppSchedulers.network())
+            .subscribeOn(AppSchedulers.ui())
             .doOnSubscribe { _ -> logger.trace("dataSynchronizer: ON") }
             .subscribe({
                 logger.trace("dataSynchronizer: OFF")

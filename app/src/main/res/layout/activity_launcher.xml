@@ -20,16 +20,18 @@
             android:layout_marginBottom="48dp"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <ru.tutu.stations.ui.CustomTextView android:layout_width="0dp" android:id="@+id/syncStatus"
-                                        android:textSize="16dp"
-                                        android:background="@color/appWhite"
-                                        android:fontFamily="@font/roboto_bold"
-                                        android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent"
-                                        android:layout_marginEnd="48dp" app:layout_constraintStart_toStartOf="parent"
-                                        android:layout_marginStart="48dp" android:layout_marginBottom="112dp"
-                                        tools:text="Обновление данных" android:textColor="@color/appBlueDark"
-                                        android:gravity="center|bottom"
-                                        app:layout_constraintBottom_toBottomOf="parent" tools:ignore="SpUsage"/>
+    <ru.tutu.stations.ui.view.CustomTextView android:layout_width="0dp" android:id="@+id/syncStatus"
+                                             android:textSize="16dp"
+                                             android:background="@color/appWhite"
+                                             android:fontFamily="@font/roboto_bold"
+                                             android:layout_height="wrap_content"
+                                             app:layout_constraintEnd_toEndOf="parent"
+                                             android:layout_marginEnd="48dp"
+                                             app:layout_constraintStart_toStartOf="parent"
+                                             android:layout_marginStart="48dp" android:layout_marginBottom="112dp"
+                                             tools:text="Обновление данных" android:textColor="@color/appBlueDark"
+                                             android:gravity="center|bottom"
+                                             app:layout_constraintBottom_toBottomOf="parent" tools:ignore="SpUsage"/>
     <Button
             android:text="@string/button_next"
             style="@style/Widget.AppCompat.Button.Borderless"
@@ -52,7 +54,8 @@
             tools:visibility="visible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonRefresh" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:id="@+id/buttonRefresh" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginBottom="48dp"
             app:layout_constraintBottom_toBottomOf="parent"/>
 

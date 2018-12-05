@@ -1,4 +1,4 @@
-package ru.tutu.stations.ui
+package ru.tutu.stations.ui.view
 
 import android.content.Context
 import android.util.AttributeSet

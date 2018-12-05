@@ -2,12 +2,12 @@ package ru.tutu.stations.data.base
 
 import io.reactivex.Completable
 import io.reactivex.Single
-import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.BehaviorSubject
 import ru.tutu.stations.data.*
 import ru.tutu.stations.localdb.base.DbTransaction
 import ru.tutu.stations.network.model.Dissect
 import ru.tutu.stations.network.model.Response
+import ru.tutu.stations.util.AppSchedulers
 
 /**
  * @author Grigoriy Pryamov.
@@ -24,7 +24,7 @@ abstract class BaseSynchronizer<Entity, Answer : Dissect<Entity>>(
     protected fun sync(): Completable {
         return apiSource()
             .doOnSubscribe { statusSubject.onNext(DownloadStatus) }
-            .observeOn(Schedulers.io())
+            .observeOn(AppSchedulers.db())
             .flatMapCompletable { response ->
                 statusSubject.onNext(ProcessStatus)
                 transaction.callInTx {
