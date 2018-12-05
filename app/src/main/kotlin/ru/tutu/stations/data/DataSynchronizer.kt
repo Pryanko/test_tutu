@@ -93,7 +93,7 @@ class DataSynchronizer @Inject constructor(
         /**
          * Срок актуальности полученных данных
          */
-        private val APP_DATA_ACTUALITY_TIME = TimeUnit.MINUTES.toMillis(1) //12 Часов
+        private val APP_DATA_ACTUALITY_TIME = TimeUnit.MINUTES.toMillis(15) //15 минут
     }
 
     override fun syncEnable(): Boolean = countryRepository.isContainsData()

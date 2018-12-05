@@ -5,6 +5,7 @@ import ru.tutu.stations.data.DataSynchronizer
 import ru.tutu.stations.localdb.di.LocalDataBaseModule
 import ru.tutu.stations.network.ApiModule
 import ru.tutu.stations.ui.activity.launcher.LauncherScreenComponent
+import ru.tutu.stations.ui.activity.main.MainScreenComponent
 import ru.tutu.stations.ui.mvp.core.MvpProcessor
 import javax.inject.Singleton
 
@@ -28,5 +29,7 @@ interface AppComponent {
 
     fun launcherScreenComponent(): LauncherScreenComponent
 
-    fun dataSynchonizer(): DataSynchronizer
+    fun mainScreenComponent(): MainScreenComponent
+
+    fun dataSynchronizer(): DataSynchronizer
 }

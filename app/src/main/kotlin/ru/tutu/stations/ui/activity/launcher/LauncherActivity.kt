@@ -11,6 +11,7 @@ import ru.tutu.stations.R
 import ru.tutu.stations.data.*
 import ru.tutu.stations.ui.activity.base.ActivityModule
 import ru.tutu.stations.ui.activity.base.MvpActivity
+import javax.inject.Inject
 
 /**
  * @author Grigoriy Pryamov.
@@ -22,6 +23,8 @@ class LauncherActivity : MvpActivity(), LauncherView {
     // region DI
     private lateinit var screenComponent: LauncherScreenComponent
     private lateinit var component: LauncherComponent
+    @Inject
+    lateinit var navigator: Navigator
     // endregion
     // region VIEW
     private lateinit var progressBar: ProgressBar
@@ -54,6 +57,16 @@ class LauncherActivity : MvpActivity(), LauncherView {
     private fun getScreenComponent(): LauncherScreenComponent {
         val saved = lastCustomNonConfigurationInstance
         return if (saved == null) appComponent.launcherScreenComponent() else saved as LauncherScreenComponent
+    }
+
+    override fun onResume() {
+        navigator.onResume(this)
+        super.onResume()
+    }
+
+    override fun onPause() {
+        navigator.onPause()
+        super.onPause()
     }
 
     override fun setSyncStatus(syncStatus: SyncStatus) {

@@ -12,7 +12,8 @@ import javax.inject.Inject
  */
 class LauncherPresenter @Inject constructor(
     launcherViewState: LauncherViewState,
-    private val dataSynchronizer: DataSynchronizer
+    private val dataSynchronizer: DataSynchronizer,
+    private val navigator: Navigator
 ) :
     BaseMvpViewStatePresenter<LauncherView, LauncherViewState>(launcherViewState) {
 
@@ -30,6 +31,16 @@ class LauncherPresenter @Inject constructor(
         requestUpdate()
     }
 
+    fun onClickedBtnNext() {
+        logger.trace("onClickedBtnNext")
+        navigator.navigateToMainActivity()
+    }
+
+    fun onClickedBtnRefresh() {
+        logger.trace("onClickedBtnRefresh")
+        requestUpdate()
+    }
+
     private fun requestUpdate() {
         syncDisposable = dataSynchronizer.dataSync()
             .subscribeOn(AppSchedulers.network())
@@ -44,14 +55,5 @@ class LauncherPresenter @Inject constructor(
         syncDisposable.dispose()
         statusDisposable.dispose()
         super.destroy()
-    }
-
-    fun onClickedBtnNext() {
-        logger.trace("onClickedBtnNext")
-    }
-
-    fun onClickedBtnRefresh() {
-        logger.trace("onClickedBtnRefresh")
-        requestUpdate()
     }
 }
