@@ -9,9 +9,9 @@ class Point {
     /**
      * Долгота
      */
-    var longitude: Double? = 0.0
+    var longitude = 0.0
     /**
      * Широта
      */
-    var latitude: Double? = 0.0
+    var latitude = 0.0
 }

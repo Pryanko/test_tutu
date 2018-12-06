@@ -10,4 +10,7 @@
     <color name="appBlue">@color/colorPrimary</color>
     <color name="appBlueDark">@color/colorPrimaryDark</color>
     <color name="appWhite">@color/colorAccent</color>
+    <color name="appGray">#686868</color>
+    <color name="rippleLightTheme">#1f000000</color>
+
 </resources>

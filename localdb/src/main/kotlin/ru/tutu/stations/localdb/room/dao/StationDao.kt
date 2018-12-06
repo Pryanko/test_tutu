@@ -12,5 +12,5 @@ import ru.tutu.stations.localdb.room.entity.StationEntity
 interface StationDao : BaseDao<StationEntity> {
 
     @Query("SELECT * FROM Station WHERE countryId = :countryId")
-    fun getAllStationByCountryId(countryId: String): List<StationEntity>
+    fun getAllStationByCountryId(countryId: Long): List<StationEntity>
 }

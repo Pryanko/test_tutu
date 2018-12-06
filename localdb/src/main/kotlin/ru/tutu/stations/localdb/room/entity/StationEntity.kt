@@ -40,6 +40,10 @@ class StationEntity : EntityWithId<Long> {
      */
     var districtTitle = ""
     /**
+     * Наименование города
+     */
+    var cityTitle = ""
+    /**
      * Наименование региона
      */
     var regionTitle = ""

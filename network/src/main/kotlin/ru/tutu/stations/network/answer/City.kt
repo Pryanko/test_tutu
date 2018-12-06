@@ -21,6 +21,10 @@ class City {
      */
     val cityId = 0L
     /**
+     * Наименование города
+     */
+    val cityTitle = ""
+    /**
      * Наименование региона
      */
     val regionTitle = ""

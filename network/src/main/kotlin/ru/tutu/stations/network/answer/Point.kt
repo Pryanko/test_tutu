@@ -9,9 +9,9 @@ class Point {
     /**
      * Долгота
      */
-    private val longitude: Double? = 0.0
+    var longitude: Double? = 0.0
     /**
      * Широта
      */
-    private val latitude: Double? = 0.0
+    var latitude: Double? = 0.0
 }

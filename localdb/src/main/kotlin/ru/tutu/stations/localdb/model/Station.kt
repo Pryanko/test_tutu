@@ -19,6 +19,10 @@ class Station : ModelWithId<Long> {
      */
     var point = Point()
     /**
+     * Наименование города
+     */
+    var cityTitle = ""
+    /**
      * Описание наименования
      */
     var districtTitle = ""

@@ -19,7 +19,7 @@ class StationRepositoryImpl @Inject constructor(appDatabase: AppDatabase, statio
     override val dao = appDatabase.stationDao()
     override val mapper = stationMapper
 
-    override fun getAllStationByCountryId(countryId: String): List<Station> {
+    override fun getAllStationByCountryId(countryId: Long): List<Station> {
         return mapper.entityListToModelList(dao.getAllStationByCountryId(countryId))!!
     }
 

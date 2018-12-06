@@ -10,7 +10,7 @@ import ru.tutu.stations.network.answer.City
 /**
  * @author Grigoriy Pryamov.
  */
-@Mapper
+@Mapper(uses = [PointMapper::class])
 interface StationMapper {
 
     @Mappings(

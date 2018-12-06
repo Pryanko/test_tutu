@@ -7,7 +7,7 @@ import ru.tutu.stations.di.ScreenScope
  * @author Grigoriy Pryamov.
  */
 @ScreenScope
-@Subcomponent
+@Subcomponent(modules = [MainModule::class])
 interface MainScreenComponent {
     fun mainComponentBuilder(): MainComponent.Builder
 }
