@@ -3,8 +3,8 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent" android:layout_height="match_parent">
-
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <ProgressBar
             android:theme="@style/ProgressAppBarStyleTheme"
@@ -20,18 +20,24 @@
             android:layout_marginBottom="48dp"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <ru.tutu.stations.ui.view.CustomTextView android:layout_width="0dp" android:id="@+id/syncStatus"
-                                             android:textSize="16dp"
-                                             android:background="@color/appWhite"
-                                             android:fontFamily="@font/roboto_bold"
-                                             android:layout_height="wrap_content"
-                                             app:layout_constraintEnd_toEndOf="parent"
-                                             android:layout_marginEnd="48dp"
-                                             app:layout_constraintStart_toStartOf="parent"
-                                             android:layout_marginStart="48dp" android:layout_marginBottom="112dp"
-                                             tools:text="Обновление данных" android:textColor="@color/appBlueDark"
-                                             android:gravity="center|bottom"
-                                             app:layout_constraintBottom_toBottomOf="parent" tools:ignore="SpUsage"/>
+    <ru.tutu.stations.ui.view.CustomTextView
+            android:layout_width="0dp"
+            android:id="@+id/syncStatus"
+            android:textSize="16dp"
+            android:background="@color/appWhite"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="48dp"
+            android:layout_marginBottom="112dp"
+            tools:text="Обновление данных"
+            android:textColor="@color/appBlueDark"
+            android:gravity="center|bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="SpUsage"/>
+
     <Button
             android:text="@string/button_next"
             style="@style/Widget.AppCompat.Button.Borderless"
@@ -41,8 +47,12 @@
             android:visibility="gone"
             tools:visibility="visible"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonNext" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginBottom="48dp"
+            android:id="@+id/buttonNext"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="48dp"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
@@ -54,10 +64,12 @@
             tools:visibility="visible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonRefresh" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/buttonRefresh"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginBottom="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="48dp"
             app:layout_constraintBottom_toBottomOf="parent"/>
-
 
 </android.support.constraint.ConstraintLayout>

@@ -3,11 +3,11 @@ package ru.tutu.stations.ui.activity.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.widget.RecyclerView
 import ru.digipeople.logger.LoggerFactory
 import ru.tutu.stations.R
 import ru.tutu.stations.ui.activity.base.ActivityModule
 import ru.tutu.stations.ui.activity.base.MvpActivity
-import javax.inject.Inject
 
 /**
  * @author Grigoriy Pryamov.
@@ -21,6 +21,7 @@ class MainActivity : MvpActivity(), MainView {
     private lateinit var component: MainComponent
     //endregion
     //region VIEW
+    private lateinit var recyclerView: RecyclerView
     //endregion
     // region OTHER
     private lateinit var presenter: MainPresenter
